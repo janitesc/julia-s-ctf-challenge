@@ -3,7 +3,7 @@
 
 - Type: custom
 - Category: Forensics
-- Points: 50
+- Points: 30
 - Namespace: 18739
 
 
