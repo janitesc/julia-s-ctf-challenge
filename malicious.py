@@ -52,7 +52,7 @@ def main():
     #fake process table
     pids = [secrets.randbelow(5000) + 1000 for _ in range(6)]
     suspicious_pid = secrets.choice(pids)
-    benign_dirs = ["Desktop", "Documents", "Pictures", "Music", "Work"]
+    other_dirs = ["Desktop", "Documents", "Pictures", "Music", "Work"]
 
     lines = []
     lines.append(b"USER       PID COMMAND\n")
@@ -61,15 +61,14 @@ def main():
         if pid == suspicious_pid:
             user_path = "user/Downloads/flag.txt"
         else:
-            # Benign ones: different dirs doing something boring
-            dir_name = secrets.choice(benign_dirs)
+            dir_name = secrets.choice(other_dirs)
             user_path = f"user/{dir_name}/"
 
 
         line = f"{user_path:<26} {pid:<5d} \n"
         lines.append(line.encode("ascii"))
     enc_config = (
-        "ENCRYPTION_SCHEME: I love Atbash! My favorite Cipher!!\n"
+        f"[PID={suspicious_pid}] I love Atbash! My favorite cipher!!\n"
      ).encode("ascii")
     lines.append(enc_config)
 

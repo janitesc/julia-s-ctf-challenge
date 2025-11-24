@@ -48,7 +48,17 @@ def extract_flag(dump_path: str) -> str:
 
     #then greps for that pid
     pid_tag = f"[PID={suspicious_pid}] ".encode("ascii")
-    tag_start = data.find(pid_tag)
+    positions = []
+    pos = 0
+    while True:
+        idx = data.find(pid_tag, pos)
+        if idx == -1: 
+            break
+        positions.append(idx)
+        pos = idx+1
+    if not positions:
+        raise RuntimeError("couldn't find encrypted flag tag")
+    tag_start = positions[-1]
     if tag_start == -1:
         raise RuntimeError("couldn't find encrypted flag tag for that PID")
 

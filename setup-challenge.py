@@ -24,7 +24,7 @@ def main():
             flag_rand = m.group(1)
 
     # Construct the actual flag players must submit
-    flag = f"picoCTF{{omg_proper_memdump_analysis_{flag_rand}}}"
+    flag = f"picoCTF{{cipher_fan_number_{flag_rand}}}"
     print(flag)
     env = os.environ.copy()
     env["FLAG"] = flag

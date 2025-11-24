@@ -1,4 +1,4 @@
-# julia challenge
+# Ciphers and Suspicious Processes
 
 
 - Type: custom
@@ -9,14 +9,13 @@
 
 ## Description
 
-Oh no, I downloaded the flag file from a cipher-hobby website, but it seems some suspicious process got rid of it. Can you help me recover it? 
+Oh no, I downloaded the flag file from a cipher hobby website, but it seems some suspicious process got rid of it. Can you help me recover it? 
 
 You can find the memory dump {{url_for('memdump.bin', 'here')}}.
 
-Download {{url_for('memdump.bin', 'here')}}, inspect it, and recover the contents of the deleted flag file.  
-Submit the recovered flag as your answer.
-
 Hints: 
-1) I expected this to be in my downloads folder, that's where it was initially
-2)For safety, the website I was downloading it from encrypted the flag, but they used their favorite cipher
-3) The flag encryption likes looking at bytes in reverse <->
+1) I expected this to be in my downloads folder
+
+2) For safety, the website I was downloading it from encrypted the file with their favorite cipher
+
+3) The flag encryption likes looking at characters in reverse <->
